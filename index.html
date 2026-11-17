@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenda de consulta</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Agenda">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADjklEQVR4Xu3coW4UURiG4SlB0WvANUHguAxwCAQGh+RikDgMAoGDy8AhSHBcQ7ElZJNmaXY255vJnv/M9nn0TulOvr677El7cXNzM8EhD9wW5hgHxkFOOVAOcsqBcpBTDpSDnHKgHOSUA+UgpxwoBznlQDnIKQfKQU45UA5yyoFykFMOlIOccqAc5JQD5SCnHCgHOeVAOcgpB8pBTjlQDnLKgXKQUw6Ug5xyoBzkHuaXnNDV1ZMTfvWN+PXr5yDf6cUIfxjfJg4qX0n9ew7LmFN+ZyrLUf7kt6IqIWXlsIx2VfeqZhxVz3a7Su5YzTjYhIJxlPwQnIH+9633OPo/w3PS+e71HgcbYhzM6jqOzlU8Sz3vYddxsC3GwRgvK2yLcqAc5JQD5SCnHCgHOeVAOcgpB8pBTjlQDnLKgXKQ6/obb9fXf/LvkLsuLx/1uSleVvCyQk45UA5yyoFykFMOlIOccqAc5JQD5SA31l8wnvPq/e/2p/b53eOWB0engI1nXS8+vW35p3e+vv7Q/uASo5/KRrPYd2Qi0Sz2HZlINIt9CybSuNT1vOdgm+85FmdjmmavXZyNaZq9dnE2pmnVtaemHGyzHNRSDpSDnHKgHOSUA+UgpxwoB7mhy9F4vnrQ3LVrTq3mrl1weHZrzbWnNvQ4qDX6kf1OdALX2JvoBK6xN9EJ3OJmNH4z621jHOzrNg4vK/jfCjnlQDnIKQfKQU45UA5y2/iNt1N8mnn98Vv77bp887zlwT++PGt52M7Tl9/bH1xi9E9Io1nsO/IxYjSL/77m/ESiWexbMBGfkFJv6Deki7Nx5LfTFmfj39eceSVanI1pWnXtqQ09DmoZB7OMA+MgpxwoBznlQDnIKQfKQW7ocqw5YZq7tvF89aC5axccnt1ac+2pDT0Oao1+ZL8TncA19iY6gWvsTXQCt7gZjU9wvW2Mg33dxtH1ZaXbszpjPe9h13GwLcbBrN7j6FnF89P57vUeBxtSMI7O8z8b/e9bwTimqeB5bl3/ZUxT0TjYhJpyiEekJBvT1PcT0oOij8bvm6pZ7JSV41bt8x9Z+Z3perZynISM9gMz0Dhu3duVlKfijhHHwSDq33MwLONglnFgHOSUA+UgpxwoBznlQDnIKQfKQU45UA5yyoFykFMOlIOccqAc5JQD5SCnHCgHOeVAOcgpB8pBTjlQDnLKgXKQUw6Ug5xyoBzk/gLA8rLrCDVfAAAAAABJRU5ErkJggg==">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADjklEQVR4Xu3coW4UURiG4SlB0WvANUHguAxwCAQGh+RikDgMAoGDy8AhSHBcQ7ElZJNmaXY255vJnv/M9nn0TulOvr677El7cXNzM8EhD9wW5hgHxkFOOVAOcsqBcpBTDpSDnHKgHOSUA+UgpxwoBznlQDnIKQfKQU45UA5yyoFykFMOlIOccqAc5JQD5SCnHCgHOeVAOcgpB8pBTjlQDnLKgXKQUw6Ug5xyoBzkHuaXnNDV1ZMTfvWN+PXr5yDf6cUIfxjfJg4qX0n9ew7LmFN+ZyrLUf7kt6IqIWXlsIx2VfeqZhxVz3a7Su5YzTjYhIJxlPwQnIH+9633OPo/w3PS+e71HgcbYhzM6jqOzlU8Sz3vYddxsC3GwRgvK2yLcqAc5JQD5SCnHCgHOeVAOcgpB8pBTjlQDnLKgXKQ6/obb9fXf/LvkLsuLx/1uSleVvCyQk45UA5yyoFykFMOlIOccqAc5JQD5SA31l8wnvPq/e/2p/b53eOWB0engI1nXS8+vW35p3e+vv7Q/uASo5/KRrPYd2Qi0Sz2HZlINIt9CybSuNT1vOdgm+85FmdjmmavXZyNaZq9dnE2pmnVtaemHGyzHNRSDpSDnHKgHOSUA+UgpxwoB7mhy9F4vnrQ3LVrTq3mrl1weHZrzbWnNvQ4qDX6kf1OdALX2JvoBK6xN9EJ3OJmNH4z621jHOzrNg4vK/jfCjnlQDnIKQfKQU45UA5y2/iNt1N8mnn98Vv77bp887zlwT++PGt52M7Tl9/bH1xi9E9Io1nsO/IxYjSL/77m/ESiWexbMBGfkFJv6Deki7Nx5LfTFmfj39eceSVanI1pWnXtqQ09DmoZB7OMA+MgpxwoBznlQDnIKQfKQW7ocqw5YZq7tvF89aC5axccnt1ac+2pDT0Oao1+ZL8TncA19iY6gWvsTXQCt7gZjU9wvW2Mg33dxtH1ZaXbszpjPe9h13GwLcbBrN7j6FnF89P57vUeBxtSMI7O8z8b/e9bwTimqeB5bl3/ZUxT0TjYhJpyiEekJBvT1PcT0oOij8bvm6pZ7JSV41bt8x9Z+Z3perZynISM9gMz0Dhu3duVlKfijhHHwSDq33MwLONglnFgHOSUA+UgpxwoBznlQDnIKQfKQU45UA5yyoFykFMOlIOccqAc5JQD5SCnHCgHOeVAOcgpB8pBTjlQDnLKgXKQUw6Ug5xyoBzk/gLA8rLrCDVfAAAAAABJRU5ErkJggg==">
+
+<style>
+:root{
+  /* Layout: el horario ocupa la pantalla; Pacientes, Reorganizar y Ajustes son páginas que vuelven a él. Todo blanco; cada paciente con su color; el rosa solo para detalles (hoy, lo recién cambiado) */
+  --bg:#FFFFFF; --ink:#232326; --muted:#6E6E73; --line:#EBEBED; --off:#F4F4F5; --off2:#E9E9EB;
+  --pink:#E995AB; --pink-soft:#FBE7EC;
+  --red:#C0392B; --red-50:#FDECEA;
+  --scrim:#EFEFF1;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg)}
+body{color:var(--ink);font:16px/1.45 var(--font);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+body.hasdock{padding-bottom:84px}
+button,input,select,textarea{font-family:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.app{max-width:880px;margin:0 auto;padding:0 16px 32px}
+main{display:flex;flex-direction:column;gap:20px}
+h1{font-size:26px;font-weight:700;margin:0;line-height:1.15}
+h2{font-size:17px;font-weight:650;margin:0;text-wrap:balance}
+h4{font-size:15px;font-weight:600;margin:0}
+p{margin:0}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;min-height:52px}
+.titlerow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:-8px}
+.link{background:none;border:0;padding:8px 2px;color:var(--ink);font:600 15px var(--font);cursor:pointer;text-align:left;text-decoration:underline;text-decoration-color:var(--off2);text-decoration-thickness:2px;text-underline-offset:4px}
+.link.sm{font-size:14px;padding:0 2px}
+.link.red{color:var(--red);text-decoration-color:var(--red-50)}
+.back{margin-left:-2px;text-decoration:none}
+.links{display:flex;flex-wrap:wrap;gap:4px 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:var(--off);color:var(--ink);font:600 16px var(--font);padding:12px 18px;min-height:48px;cursor:pointer;text-decoration:none;text-align:center}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn.danger{background:var(--red-50);color:var(--red)}
+.btn.sm{min-height:38px;padding:8px 14px;font-size:15px;border-radius:10px}
+.btn.block{width:100%}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row2{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+.stack{display:flex;flex-direction:column;gap:8px}
+section{display:flex;flex-direction:column;gap:12px}
+.notice{background:var(--red-50);color:var(--red);border:0;border-radius:12px;padding:10px 14px;font:600 14px var(--font);text-align:left;margin-top:12px;cursor:pointer}
+.demo{background:var(--off);border-radius:12px;padding:10px 14px;font-size:15px;display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;margin-top:-6px}
+.demo .link{padding:0}
+.lead{font-size:17px;line-height:1.5;max-width:60ch}
+.alerts{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 16px;margin-top:-10px;font-size:14px}
+.alerts .bad{color:var(--red);font-weight:600}
+.foot{font-size:14px;color:var(--muted)}
+.f .foot{font-weight:400}
+.empty{color:var(--muted);padding:8px 0}
+.err{color:var(--red);font-size:14px;font-weight:600}
+.start{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:8px 0 4px}
+/* semana */
+.wknav{display:flex;align-items:center;gap:8px}
+.wknav .t{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;line-height:1.25}
+.wknav .t b{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums}
+.wknav .t small{font-size:14px;color:var(--muted)}
+.arrow{width:44px;height:44px;border-radius:50%;border:0;background:var(--off);font-size:24px;line-height:1;cursor:pointer;flex:none}
+.wkwrap{overflow-x:auto;margin:0 -16px;padding:0 16px 2px}
+.wk{display:grid;grid-template-columns:40px repeat(var(--nd),minmax(56px,1fr));grid-template-rows:58px;grid-auto-rows:52px;min-width:calc(40px + var(--nd) * 56px)}
+.wh{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:0;background:none;padding:0;color:var(--muted);font:500 12px var(--font)}
+button.wh{cursor:pointer}
+.wh b{width:32px;height:32px;display:grid;place-items:center;border-radius:50%;font-size:17px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.wh.today b{background:var(--pink);color:var(--bg)}
+.wh.blk b{color:var(--red);background:var(--red-50)}
+.tl{font:500 11px var(--font);color:var(--muted);text-align:right;padding-right:7px;transform:translateY(-7px);font-variant-numeric:tabular-nums}
+.c{border:0;border-top:1px solid var(--line);background:var(--bg);padding:0;min-width:0}
+button.c{cursor:pointer}
+.c.off{background:var(--off);border-top-color:var(--bg)}
+.c.blk{background:var(--red-50)}
+.sg{display:flex;flex-direction:column;gap:2px;padding:2px 2px 1px;z-index:1;min-width:0;pointer-events:none}
+.ss{pointer-events:auto;flex:1 1 0;min-height:0;min-width:0;display:flex;flex-direction:column;justify-content:center;border:0;border-left:4px solid var(--bar);border-radius:7px;background:var(--cbg);color:var(--ink);font:600 12.5px/1.2 var(--font);padding:4px 5px 4px 6px;text-align:left;overflow:hidden}
+button.ss{cursor:pointer}
+.ss .nm{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;hyphens:auto;-webkit-hyphens:auto}
+.ss .tg{font-size:11px;font-weight:500;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sg.multi .ss .nm{-webkit-line-clamp:1}
+.sg.multi .ss .tg{display:none}
+.ss.cx{background:var(--off);border-left-color:var(--off2);color:var(--muted)}
+.ss.cx .nm{text-decoration:line-through}
+.ss.bad{background:var(--red-50);border-left-color:var(--red);color:var(--red)}
+.ss.bad .tg{color:var(--red)}
+.ss.chg{box-shadow:inset 0 0 0 2px var(--pink)}
+.ss.flash{animation:flash 1.6s ease-out}
+@keyframes flash{0%,40%{box-shadow:inset 0 0 0 3px var(--pink);transform:scale(1.05)}100%{box-shadow:inset 0 0 0 0 var(--pink);transform:none}}
+/* listas */
+.list{display:flex;flex-direction:column}
+.item{display:flex;align-items:center;gap:12px;width:100%;padding:13px 0;border:0;border-bottom:1px solid var(--line);background:none;font:inherit;text-align:left}
+button.item{cursor:pointer}
+.item .main{flex:1;min-width:0;display:flex;flex-direction:column}
+.item b{font-weight:600}
+.item small{font-size:14px;color:var(--muted)}
+.item .warn{font-size:14px;font-weight:600;color:var(--red);white-space:nowrap}
+.item .soft{font-size:14px;font-weight:600;color:var(--muted);white-space:nowrap}
+.item .link{flex:none}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--bar);flex:none}
+/* formularios */
+label.f,div.f{display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:600}
+input[type=text],input[type=search],select,textarea{width:100%;font-size:16px;background:var(--off);border:0;border-radius:10px;padding:11px 12px}
+textarea{resize:vertical;min-height:120px;line-height:1.45}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.chk{display:flex;align-items:center;gap:10px;font-size:15px}
+.chk input,.orow input{width:20px;height:20px;accent-color:var(--ink);flex:none}
+.seg{display:flex;gap:4px;background:var(--off);border-radius:12px;padding:4px}
+.seg button{flex:1;border:0;border-radius:8px;background:var(--off);padding:9px 4px;font:600 14px var(--font);color:var(--muted);cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--bg);color:var(--ink);box-shadow:0 0 0 1px var(--off2)}
+.days{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:6px}
+.days button{border:0;border-radius:10px;background:var(--off);padding:11px 0;font:600 15px var(--font);cursor:pointer}
+.days button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.pg{display:grid;grid-template-columns:40px repeat(6,1fr);grid-auto-rows:30px;gap:3px;user-select:none;-webkit-user-select:none}
+.pgh{font:600 12px var(--font);color:var(--muted);text-align:center;align-self:end}
+.pgt{font:500 11px var(--font);color:var(--muted);text-align:right;padding-right:6px;align-self:center;font-variant-numeric:tabular-nums}
+.pc{border-radius:6px;background:var(--bg);box-shadow:inset 0 0 0 1px var(--off2);touch-action:none;cursor:pointer}
+.pc.nw[data-v="0"]{background:var(--off);box-shadow:none}
+.pg[data-mode="avail"] .pc[data-v="1"]{background:var(--cbg);box-shadow:inset 0 0 0 2px var(--bar)}
+.pg[data-mode="avail"] .pc[data-v="2"]{background:var(--bar);box-shadow:none}
+.pg[data-mode="work"] .pc[data-v="0"]{background:var(--off);box-shadow:none}
+.pg[data-mode="work"] .pc[data-v="1"]{background:var(--bg);box-shadow:inset 0 0 0 1px var(--off2)}
+.key{display:flex;gap:16px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.key span{display:inline-flex;align-items:center;gap:6px}
+.key i{width:14px;height:14px;border-radius:4px;display:inline-block}
+.prog{height:6px;border-radius:6px;background:var(--off);overflow:hidden;margin:21px 0}
+.prog i{display:block;height:100%;width:0;background:var(--ink);transition:width .25s}
+/* paneles */
+.sheet-wrap{position:fixed;inset:0;z-index:50;display:flex;align-items:flex-end;justify-content:center;background:var(--scrim)}
+.sheet-wrap[hidden]{display:none}
+.sheet-bg{position:absolute;inset:0}
+.sheet{position:relative;width:100%;max-width:560px;max-height:94%;overflow:auto;background:var(--bg);border-radius:20px 20px 0 0;padding:22px 16px calc(24px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px;animation:up .2s ease-out}
+@keyframes up{from{transform:translateY(32px)}to{transform:none}}
+@media (min-width:640px){.sheet-wrap{align-items:center}.sheet{border-radius:20px;max-height:90%}}
+.sheet h3{font-size:21px;font-weight:700;margin:0;padding-right:44px;text-wrap:balance;line-height:1.2;display:flex;align-items:center;gap:10px}
+.sub2{color:var(--muted);font-size:15px;margin-top:-8px}
+.x{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:0;background:var(--off);font-size:22px;line-height:1;color:var(--muted);cursor:pointer}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;border:0;border-radius:12px;background:var(--off);padding:13px 14px;font:inherit;text-align:left;cursor:pointer}
+.opt b{font-weight:600;font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:10px}
+.opt small{font-size:13px;color:var(--muted);text-align:right}
+.orow{display:flex;align-items:center;gap:10px;border-radius:12px;background:var(--off);padding:6px 12px;box-shadow:inset 0 0 0 2px var(--off)}
+.orow.on{background:var(--bg);box-shadow:inset 0 0 0 2px var(--ink)}
+.orow label{flex:1;min-width:0;display:flex;align-items:center;gap:12px;padding:6px 0;cursor:pointer}
+.orow b{font-weight:600;font-variant-numeric:tabular-nums}
+.confirm{background:var(--red-50);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:12px}
+/* barra inferior */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:10;display:flex;justify-content:center;gap:10px;background:var(--bg);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.dock[hidden]{display:none}
+.dock .btn{flex:1;max-width:280px}
+.toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,200px);visibility:hidden;background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:12px;font-size:15px;font-weight:600;max-width:calc(100% - 32px);text-align:center;z-index:60;transition:transform .22s,visibility .22s;pointer-events:none}
+.toast.on{transform:translate(-50%,0);visibility:visible}
+@media (prefers-reduced-motion:reduce){.sheet,.ss.flash{animation:none}.toast,.prog i{transition:none}}
+@media (max-width:380px){.grid3{grid-template-columns:1fr 1fr}.seg button{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="app"><main id="main"></main></div>
+<nav class="dock" id="dock" aria-label="Acciones"><button class="btn" data-a="go" data-v="pat">Pacientes</button><button class="btn" data-a="go" data-v="opt">Reorganizar</button></nav>
+<div id="sheet" class="sheet-wrap" hidden>
+  <div class="sheet-bg" data-a="close"></div>
+  <div class="sheet" id="sheet-body" role="dialog" aria-modal="true"></div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+/* ---------- constantes y utilidades ---------- */
+const DAYS=['Lun','Mar','Mié','Jue','Vie','Sáb'];
+const DAYS_L=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+const MONTHS=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const ANCHOR=Date.UTC(2024,0,1); // lunes
+const WEEK=7*864e5;
+const LS_KEY='agenda-consulta-v1';
+const FREQ_L={1:'Semanal',2:'Quincenal',4:'Cada 4 semanas',0:'Puntual'};
+const SYNC_LONG={loading:'Conectando con tu cuenta…',ok:'Guardado en tu cuenta.',saving:'Guardando en tu cuenta…',local:'Tus datos se guardan solo en este dispositivo, no en ningún servidor. Descarga una copia de vez en cuando por si cambias de móvil o borras el navegador.',ro:'Tu cuenta no tiene permiso para guardar aquí: pide que te compartan la agenda como Editora. Mientras, se guarda solo en este navegador.',err:'No se pudo guardar en tu cuenta. Se guarda en este navegador; vuelve a intentarlo más tarde.',slow:'Tardando en conectar con tu cuenta…'};
+const PAL=[['#E3EEFB','#4A86D8'],['#E2F3E6','#3F9A5B'],['#FBF1CF','#C9A227'],['#ECE7FA','#7B66C9'],['#DDF2F1','#2E9C95'],['#FDE8D6','#DB7C2E'],['#DFF3FB','#2E9CC9'],['#EEF1DA','#8C9A2E'],['#F2E6F6','#A05CB5'],['#F3ECE2','#A07A4F'],['#DDF5EC','#2FA97A'],['#E6EAF0','#5B6B85']];
+const pcol=p=>{const c=PAL[mod(p.c??0,PAL.length)];return `--cbg:${c[0]};--bar:${c[1]}`;};
+const mod=(a,n)=>((a%n)+n)%n;
+const pad=n=>String(n).padStart(2,'0');
+const hm=m=>Math.floor(m/60)+':'+pad(m%60);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Math.random().toString(36).slice(2,10);
+const K=(d,m)=>d+'-'+m;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const fmtN=x=>Number.isInteger(x)?String(x):x.toFixed(1).replace('.',',');
+const fmtH=h=>fmtN(Math.round(h*10)/10)+' h';
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function weekOf(date){const u=Date.UTC(date.getFullYear(),date.getMonth(),date.getDate());const dow=(new Date(u).getUTCDay()+6)%7;return Math.round((u-dow*864e5-ANCHOR)/WEEK);}
+function weekDate(W,d=0){return new Date(ANCHOR+W*WEEK+d*864e5);}
+function dLabel(W,d){const x=weekDate(W,d);return x.getUTCDate()+' '+MONTHS[x.getUTCMonth()];}
+function abLabel(W){return mod(W,2)===0?'A':'B';}
+function weekTag(W){return 'Semana '+abLabel(W)+' · ciclo '+(mod(W,4)+1)+' de 4';}
+function phaseLabel(f,ph){return f===2?(ph===0?'semanas A':'semanas B'):f===4?('semana '+(ph+1)+' de 4'):'';}
+
+/* ---------- estado ---------- */
+let S=null, ref=null, dbOk=false, syncS='loading', saving=false, pending=false, saveT=null, retried=false;
+const UI={view:'week',W:weekOf(new Date()),opt:null,optCycle:0,onlyAvail:true,ctx:null,draft:null,busy:false,pSearch:'',delAsk:false,flash:null,offer:null};
+const painterMaps={};
+const P=id=>S.patients.find(p=>p.id===id);
+
+function defaultSettings(){
+  const s={start:540,end:1260,slot:60,working:{},dayPref:[0,0,0,0,0,0],maxPerDay:0,w:{days:3,gaps:2,stab:2}};
+  for(let d=0;d<5;d++)for(let m=540;m<1260;m+=60)if(m!==840)s.working[K(d,m)]=1;
+  return s;
+}
+function emptyState(){return {v:1,demo:false,updated:Date.now(),settings:defaultSettings(),patients:[],weeks:{}};}
+function normalize(s){
+  if(!s||typeof s!=='object'||!Array.isArray(s.patients)||!s.settings)return null;
+  const d=defaultSettings();
+  s.settings=Object.assign(d,s.settings);
+  if(!Array.isArray(s.settings.dayPref)||s.settings.dayPref.length<6)s.settings.dayPref=[0,0,0,0,0,0];
+  s.settings.w=Object.assign({days:3,gaps:2,stab:2},s.settings.w||{});
+  s.weeks=s.weeks||{};
+  for(const W in s.weeks){const w=s.weeks[W];w.ex=w.ex||[];w.blk=w.blk||{};}
+  s.patients.forEach((p,i)=>{p.id=p.id||uid();p.name=p.name||'Sin nombre';p.freq=[0,1,2,4].includes(p.freq)?p.freq:1;p.dur=p.dur||1;p.avail=p.avail||{};p.c=p.c??(i%12);p.notes=p.notes||'';p.locked=!!p.locked;});
+  return s;
+}
+function slots(){const {start,end,slot}=S.settings;const a=[];for(let m=start;m+slot<=end;m+=slot)a.push(m);return a;}
+function nearestIdx(SL,m){let b=0,bd=Infinity;SL.forEach((x,i)=>{const dd=Math.abs(x-m);if(dd<bd){bd=dd;b=i;}});return b;}
+const isWork=(d,m)=>!!S.settings.working[K(d,m)];
+const hasAvail=p=>Object.values(p.avail).some(Boolean);
+const anyPref=p=>Object.values(p.avail).some(v=>v===2);
+function fits(p,d,m,needAvail=true){
+  const {slot,end}=S.settings,dur=p.dur||1,av=needAvail&&hasAvail(p);
+  for(let k=0;k<dur;k++){const mm=m+k*slot;if(mm+slot>end||!isWork(d,mm))return false;if(av&&!p.avail[K(d,mm)])return false;}
+  return true;
+}
+function isPrefAt(p,d,m){for(let k=0;k<(p.dur||1);k++)if(p.avail[K(d,m+k*S.settings.slot)]!==2)return false;return true;}
+function slotLabel(p,a){a=a||p.slot;if(!a)return 'Sin hora fija';const ph=p.freq>1?' · '+phaseLabel(p.freq,mod(a.ph||0,p.freq)):'';return DAYS[a.d]+' '+hm(a.m)+ph;}
+function nextHue(){const used=PAL.map((_,i)=>S.patients.filter(p=>p.c===i).length);return used.indexOf(Math.min(...used));}
+
+/* ---------- datos de ejemplo ---------- */
+function mkAvail(parts){const a={};for(const [days,f,t,v] of parts)for(const d of days)for(let m=f*60;m<t*60;m+=60)a[K(d,m)]=v||1;return a;}
+const DEMO=[
+  ['Marta G.',1,[[[0,1,3],16,20]],{d:0,m:1020}],
+  ['Pablo R.',1,[[[1,2,3],9,13]],{d:2,m:600}],
+  ['Lucía y Andrés',2,[[[1,3],17,21],[[3],19,21,2]],{d:1,m:1140,ph:0}],
+  ['Irene M.',1,[[[0,1,2,3,4],18,21]],{d:4,m:1140}],
+  ['Jorge S.',2,[[[1,3],16,21]],{d:1,m:1200,ph:1}],
+  ['Nuria P.',1,[[[0,1,2,3,4],9,12]],{d:4,m:540}],
+  ['Álvaro T.',1,[[[0,2],15,19]],{d:2,m:1020}],
+  ['Carmen L.',4,[[[0,1,2,3,4],9,13]],{d:3,m:660,ph:2}],
+  ['Sergio V.',1,[[[1,3,4],17,21]],{d:3,m:1200}],
+  ['Elena F.',2,[[[0,1,2,3],12,14]],{d:0,m:720,ph:1}],
+  ['Diego H.',1,[[[2,3],18,21]],{d:2,m:1200}],
+  ['Paula C.',1,[[[0,1,2],9,11],[[1],9,10,2]],{d:1,m:540}],
+  ['Raúl B.',2,[[[4],15,20],[[3],15,18]],{d:4,m:960,ph:0}],
+  ['Sofía N.',1,[[[0,1],15,18]],{d:1,m:960},true],
+  ['Héctor A.',0,[[[0,1,2,3,4],10,13]],null],
+  ['Lola D.',1,[[[0,1,2,3,4],10,13]],{d:0,m:600}],
+];
+function demoState(){
+  const s=emptyState();s.demo=true;s.updated=0;
+  DEMO.forEach(([name,freq,parts,slot,locked],i)=>s.patients.push({id:'d'+i,name,freq,dur:1,avail:mkAvail(parts),slot:slot?{d:slot.d,m:slot.m,ph:slot.ph||0}:null,locked:!!locked,notes:'',c:i%12}));
+  const W=weekOf(new Date());
+  s.weeks[W]={ex:[{id:uid(),pid:'d1',kind:'cancel'},{id:uid(),pid:'d3',kind:'move',d:3,m:1080}],blk:{}};
+  return s;
+}
+
+/* ---------- semana concreta ---------- */
+function weekData(W){
+  const w=S.weeks[W]||{ex:[],blk:{}};const ex=w.ex,blk=w.blk;const {slot}=S.settings;
+  const list=[],byP={};
+  ex.forEach(e=>{if(e.kind!=='extra')byP[e.pid]=e;});
+  for(const p of S.patients){
+    if(!p.slot||!p.freq)continue;
+    if(mod(W,p.freq)!==mod(p.slot.ph||0,p.freq))continue;
+    const e=byP[p.id];const base={pid:p.id,p,d:p.slot.d,m:p.slot.m,dur:p.dur||1,kind:'rec'};
+    if(e&&e.kind==='cancel')list.push({...base,kind:'cancel',exId:e.id});
+    else if(e&&e.kind==='move'){list.push({...base,kind:'from',exId:e.id});list.push({...base,d:e.d,m:e.m,kind:'move',exId:e.id});}
+    else list.push(base);
+  }
+  for(const e of ex)if(e.kind==='extra'){const p=P(e.pid);if(p)list.push({pid:p.id,p,d:e.d,m:e.m,dur:p.dur||1,kind:'extra',exId:e.id});}
+  const live=list.filter(s=>s.kind!=='cancel'&&s.kind!=='from');
+  const occ={};
+  for(const s of live)for(let k=0;k<s.dur;k++){const key=K(s.d,s.m+k*slot);(occ[key]=occ[key]||[]).push(s);}
+  for(const s of list){
+    s.issues=[];if(s.kind==='cancel'||s.kind==='from')continue;
+    for(let k=0;k<s.dur;k++){const mm=s.m+k*slot,key=K(s.d,mm);
+      if(occ[key].length>1)s.issues.push('solapa');
+      if(blk[s.d]||blk[key])s.issues.push('bloqueado');
+      if(!isWork(s.d,mm))s.issues.push('fuera de horario');}
+    s.issues=[...new Set(s.issues)];
+  }
+  return {list,live,blk,ex};
+}
+function weekStats(live){
+  const SL=slots(),{slot}=S.settings,by={};
+  for(const s of live)for(let k=0;k<s.dur;k++)(by[s.d]=by[s.d]||new Set()).add(s.m+k*slot);
+  let gaps=0;
+  for(const d in by){const set=by[d];const idx=SL.map((m,i)=>set.has(m)?i:-1).filter(i=>i>=0);if(!idx.length)continue;
+    for(let i=idx[0]+1;i<idx[idx.length-1];i++)if(!set.has(SL[i])&&isWork(+d,SL[i]))gaps++;}
+  return {n:live.length,days:Object.keys(by).length,gapsH:gaps*slot/60};
+}
+function wk(W,create){if(!S.weeks[W]&&create)S.weeks[W]={ex:[],blk:{}};return S.weeks[W];}
+function findEx(W,id){const w=S.weeks[W];return w&&w.ex.find(e=>e.id===id);}
+function cleanWeek(W){const w=S.weeks[W];if(w&&!w.ex.length&&!Object.keys(w.blk).length)delete S.weeks[W];}
+
+/* ---------- plan base (semana tipo, ciclo de 4 semanas) ---------- */
+function currentAssign(){const a={};S.patients.forEach(p=>{if(p.freq)a[p.id]=p.slot?{...p.slot}:null;});return a;}
+function planStats(assign){
+  const SL=slots(),ns=SL.length,si={},{slot}=S.settings;SL.forEach((m,i)=>si[m]=i);
+  let days=0,gaps=0,ovl=0,unas=0,outside=0;const used=new Set();
+  for(const p of S.patients){if(!p.freq)continue;const a=assign[p.id];if(!a){unas++;continue;}if(!fits(p,a.d,a.m))outside++;}
+  for(let w=0;w<4;w++){
+    const occ={};
+    for(const p of S.patients){if(!p.freq)continue;const a=assign[p.id];if(!a||mod(w,p.freq)!==mod(a.ph||0,p.freq))continue;
+      let s0=si[a.m];if(s0===undefined)s0=nearestIdx(SL,a.m);
+      const arr=occ[a.d]||(occ[a.d]=new Array(ns).fill(0));for(let k=0;k<(p.dur||1)&&s0+k<ns;k++)arr[s0+k]++;}
+    for(const d in occ){const arr=occ[d];let f=-1,l=-1;
+      for(let s=0;s<ns;s++)if(arr[s]){if(f<0)f=s;l=s;if(arr[s]>1)ovl+=arr[s]-1;}
+      if(f<0)continue;days++;used.add(+d);
+      for(let s=f+1;s<l;s++)if(!arr[s]&&isWork(+d,SL[s]))gaps++;}
+  }
+  const workDays=[0,1,2,3,4,5].filter(d=>SL.some(m=>isWork(d,m)));
+  return {days:days/4,gapsH:gaps/4*slot/60,ovl,unas,outside,free:workDays.filter(d=>!used.has(d))};
+}
+function baseIssues(){
+  const out={},add=(id,t)=>(out[id]=out[id]||new Set()).add(t);const occ=[{},{},{},{}],{slot}=S.settings;
+  for(const p of S.patients){
+    if(!p.freq)continue;if(!p.slot){add(p.id,'Sin hora');continue;}
+    const dur=p.dur||1;let work=true;for(let k=0;k<dur;k++)if(!isWork(p.slot.d,p.slot.m+k*slot))work=false;
+    if(!work)add(p.id,'Fuera de tu horario');else if(!fits(p,p.slot.d,p.slot.m))add(p.id,'Fuera de su disponibilidad');
+    for(let w=0;w<4;w++){if(mod(w,p.freq)!==mod(p.slot.ph||0,p.freq))continue;
+      for(let k=0;k<dur;k++){const key=K(p.slot.d,p.slot.m+k*slot);const o=occ[w][key];
+        if(o&&o!==p.id){add(p.id,'Solapa');add(o,'Solapa');}else occ[w][key]=p.id;}}
+  }
+  return out;
+}
+
+/* ---------- optimizador (recocido simulado sobre el ciclo de 4 semanas) ---------- */
+async function runOptimizer(onProgress){
+  const st=S.settings,SL=slots(),ns=SL.length,ND=6;
+  const work=[...Array(ND)].map((_,d)=>SL.map(m=>isWork(d,m)));
+  const mult=[0,0.5,1,2,4];
+  const Wd=20*mult[st.w.days]+0.5,Wg=6*mult[st.w.gaps]+0.2,Wm=32*mult[st.w.stab]+0.5;
+  const Wpf=25,Wnp=8,Wun=600,Wov=1000,Wmax=300,maxD=+st.maxPerDay||0;
+  const occ=new Int16Array(4*ND*ns),sess=new Int16Array(4*ND),dayC=new Float64Array(4*ND);
+  const fixed=[],free=[];
+  S.patients.forEach(p=>{if(!p.freq)return;(p.locked&&p.slot?fixed:free).push(p);});
+  const n=free.length;
+  const WEEKS={1:[[0,1,2,3]],2:[[0,2],[1,3]],4:[[0],[1],[2],[3]]};
+  const touched=[];
+  function place(d,s,dur,f,ph,sign){for(const w of WEEKS[f][ph]){const t=w*ND+d,b=t*ns+s;for(let k=0;k<dur&&s+k<ns;k++)occ[b+k]+=sign;sess[t]+=sign;touched.push(t);}}
+  function dayCost(t){
+    const d=t%ND,b=t*ns;let f=-1,l=-1,ov=0;
+    for(let s=0;s<ns;s++){const o=occ[b+s];if(o>0){if(f<0)f=s;l=s;if(o>1)ov+=o-1;}}
+    if(f<0)return 0;
+    let c=Wd+(st.dayPref[d]===1?Wpf:0)+(st.dayPref[d]===2?Wov:0)+ov*Wov;
+    let g=0;for(let s=f+1;s<l;s++)if(occ[b+s]===0&&work[d][s])g++;
+    c+=g*Wg;const nn=sess[t];if(maxD&&nn>maxD)c+=(nn-maxD)*Wmax;
+    return c;
+  }
+  const cands=free.map(p=>{
+    const f=p.freq,dur=p.dur||1,out=[],ap=anyPref(p);
+    for(let d=0;d<ND;d++){if(st.dayPref[d]===2)continue;
+      for(let s=0;s+dur<=ns;s++){const m=SL[s];if(!fits(p,d,m))continue;const pref=isPrefAt(p,d,m);
+        for(let ph=0;ph<f;ph++){const same=p.slot&&p.slot.d===d&&p.slot.m===m&&mod(p.slot.ph||0,f)===ph;
+          out.push({d,s,m,ph,pc:(p.slot&&!same?Wm:0)+(ap&&!pref?Wnp:0)});}}}
+    return out;
+  });
+  const look=cands.map(C=>{const mp=new Map();C.forEach((c,i)=>mp.set((c.d*100+c.s)*10+c.ph,i));return mp;});
+  const a=new Int32Array(n).fill(-1);const seen=new Int32Array(4*ND);let mark=1;
+  function setA(i,nc){
+    const p=free[i],dur=p.dur||1,f=p.freq,oc=a[i];touched.length=0;
+    if(oc>=0){const c=cands[i][oc];place(c.d,c.s,dur,f,c.ph,-1);}
+    if(nc>=0){const c=cands[i][nc];place(c.d,c.s,dur,f,c.ph,1);}
+    let delta=(nc>=0?cands[i][nc].pc:Wun)-(oc>=0?cands[i][oc].pc:Wun);
+    mark++;
+    for(const t of touched){if(seen[t]===mark)continue;seen[t]=mark;const c=dayCost(t);delta+=c-dayC[t];dayC[t]=c;}
+    a[i]=nc;return delta;
+  }
+  function total(){let c=0;for(let t=0;t<4*ND;t++)c+=dayC[t];for(let i=0;i<n;i++)c+=a[i]>=0?cands[i][a[i]].pc:Wun;return c;}
+  function rebuild(init){
+    occ.fill(0);sess.fill(0);a.fill(-1);
+    for(const p of fixed){const s=SL.indexOf(p.slot.m);if(s<0)continue;place(p.slot.d,s,p.dur||1,p.freq,mod(p.slot.ph||0,p.freq),1);}
+    for(let t=0;t<4*ND;t++)dayC[t]=dayCost(t);
+    if(init)for(let i=0;i<n;i++)if(init[i]>=0)setA(i,init[i]);
+  }
+  function greedy(noise){
+    const order=[...Array(n).keys()].sort(()=>Math.random()-.5);
+    for(const i of order){if(a[i]>=0||!cands[i].length)continue;let best=-1,bv=Infinity;
+      for(let c=0;c<cands[i].length;c++){const dl=setA(i,c)+(noise?Math.random()*noise:0);if(dl<bv){bv=dl;best=c;}setA(i,-1);}
+      setA(i,best);}
+  }
+  function anneal(iters){
+    let cur=total(),best=cur;const bestA=a.slice();
+    if(!n)return {best,bestA};
+    const T0=40,T1=.2;let T=T0;const cool=Math.pow(T1/T0,1/iters);
+    for(let it=0;it<iters;it++,T*=cool){
+      const i=(Math.random()*n)|0;const C=cands[i];if(!C.length)continue;
+      if(n>1&&Math.random()<.2){
+        const j=(Math.random()*n)|0;if(j===i||a[i]<0||a[j]<0)continue;
+        const ci=cands[i][a[i]],cj=cands[j][a[j]];
+        const ni=look[i].get((cj.d*100+cj.s)*10+(cj.ph%free[i].freq)),nj=look[j].get((ci.d*100+ci.s)*10+(ci.ph%free[j].freq));
+        if(ni===undefined||nj===undefined)continue;
+        const oi=a[i],oj=a[j];const dl=setA(i,ni)+setA(j,nj);
+        if(dl<=0||Math.random()<Math.exp(-dl/T))cur+=dl;else{setA(j,oj);setA(i,oi);}
+      }else{
+        const oc=a[i],nc=(Math.random()*C.length)|0;if(nc===oc)continue;
+        const dl=setA(i,nc);
+        if(dl<=0||Math.random()<Math.exp(-dl/T))cur+=dl;else setA(i,oc);
+      }
+      if(cur<best-1e-9){best=cur;bestA.set(a);}
+    }
+    return {best,bestA};
+  }
+  const curInit=free.map((p,i)=>{if(!p.slot)return -1;const s=SL.indexOf(p.slot.m);if(s<0)return -1;const v=look[i].get((p.slot.d*100+s)*10+mod(p.slot.ph||0,p.freq));return v===undefined?-1:v;});
+  const iters=Math.min(150000,20000+n*4000),R=4;
+  let gBest=Infinity,gA=null;
+  for(let r=0;r<R;r++){
+    rebuild(r===0?curInit:null);greedy(r===0?0:10);
+    const {best,bestA}=anneal(iters);
+    if(best<gBest){gBest=best;gA=bestA.slice();}
+    onProgress&&onProgress((r+1)/R);await sleep(0);
+  }
+  const assign={};
+  fixed.forEach(p=>assign[p.id]={...p.slot});
+  free.forEach((p,i)=>{const c=gA[i]>=0?cands[i][gA[i]]:null;assign[p.id]=c?{d:c.d,m:c.m,ph:c.ph}:null;});
+  return assign;
+}
+function diffPlan(assign){
+  const moved=[];
+  for(const p of S.patients){
+    if(!p.freq||(p.locked&&p.slot))continue;
+    const a=assign[p.id],s=p.slot;
+    const same=a&&s&&a.d===s.d&&a.m===s.m&&mod(a.ph||0,p.freq)===mod(s.ph||0,p.freq);
+    if(!same&&(a||s))moved.push({p,from:s,to:a});
+  }
+  return moved;
+}
+function firstDate(p,a){
+  const today=new Date();const W0=weekOf(today);const todayU=Date.UTC(today.getFullYear(),today.getMonth(),today.getDate());
+  for(let i=0;i<9;i++){const W=W0+i;if(mod(W,p.freq)!==mod(a.ph||0,p.freq))continue;const dt=weekDate(W,a.d);if(dt.getTime()<todayU)continue;return DAYS_L[a.d].toLowerCase()+' '+dLabel(W,a.d);}
+  return '';
+}
+function optMessage(){
+  if(!UI.opt)return '';
+  const lines=['Cambios de horario:'];
+  for(const x of UI.opt.moved){
+    const from=x.from?DAYS_L[x.from.d].toLowerCase()+' '+hm(x.from.m):'sin hora';
+    const to=x.to?DAYS_L[x.to.d].toLowerCase()+' '+hm(x.to.m):'pendiente de encontrar hora';
+    const freq=x.p.freq===1?'cada semana':x.p.freq===2?'cada dos semanas':'cada cuatro semanas';
+    lines.push('• '+x.p.name+': '+from+' → '+to+(x.to?' ('+freq+', desde el '+firstDate(x.p,x.to)+')':''));
+  }
+  return lines.join('\n');
+}
+function planList(assign,c){
+  const out=[];
+  for(const p of S.patients){if(!p.freq)continue;const a=assign[p.id];if(!a||mod(c,p.freq)!==mod(a.ph||0,p.freq))continue;out.push({pid:p.id,p,d:a.d,m:a.m,dur:p.dur||1,kind:'rec',issues:[]});}
+  return out;
+}
+
+
+function suggest(ctx,onlyAvail){
+  const p=P(ctx.pid),dur=p.dur||1,SL=slots(),{slot,end,dayPref}=S.settings;
+  const wd=weekData(ctx.W);
+  const subject=s=>s.pid===ctx.pid&&(ctx.kind==='extra'?s.exId===ctx.exId:(s.kind==='rec'||s.kind==='move'));
+  const occ=new Set(),perDay={};
+  for(const s of wd.live){if(subject(s))continue;perDay[s.d]=(perDay[s.d]||0)+1;for(let k=0;k<s.dur;k++)occ.add(K(s.d,s.m+k*slot));}
+  const curD=ctx.kind==='from'?(findEx(ctx.W,ctx.exId)||{}).d:ctx.d,curM=ctx.kind==='from'?(findEx(ctx.W,ctx.exId)||{}).m:ctx.m;
+  const res=[],past=pastFn(ctx.W);
+  for(let d=0;d<6;d++){
+    if(dayPref[d]===2||wd.blk[d])continue;
+    for(const m of SL){
+      if(past(d,m))continue;
+      let ok=true,inAv=true,prefAll=true;
+      for(let k=0;k<dur;k++){const mm=m+k*slot,key=K(d,mm);
+        if(mm+slot>end||!isWork(d,mm)||occ.has(key)||wd.blk[key]){ok=false;break;}
+        if(hasAvail(p)&&!p.avail[key])inAv=false;if(p.avail[key]!==2)prefAll=false;}
+      if(!ok||(onlyAvail&&!inAv))continue;
+      if(ctx.kind!=='cancel'&&d===curD&&m===curM)continue;
+      if(ctx.kind==='cancel'&&p.slot&&d===p.slot.d&&m===p.slot.m)continue;
+      let sc=0;const why=[];
+      if(perDay[d]){sc+=30;why.push('no abre día nuevo');}else{sc-=40;why.push('abre un día');}
+      const before=occ.has(K(d,m-slot)),after=occ.has(K(d,m+dur*slot));
+      if(before&&after){sc+=25;why.push('rellena un hueco');}else if(before||after){sc+=15;why.push('junto a otra sesión');}
+      if(dayPref[d]===1){sc-=25;why.push('día que prefieres libre');}
+      if(!inAv){sc-=20;why.push('fuera de su disponibilidad');}
+      else if(prefAll&&anyPref(p)){sc+=10;why.push('su horario preferido');}
+      if(p.slot&&d===p.slot.d)sc+=5;
+      res.push({d,m,sc,why});
+    }
+  }
+  res.sort((a,b)=>b.sc-a.sc||a.d-b.d||a.m-b.m);
+  return res.slice(0,8);
+}
+
+function pastFn(W){
+  const now=new Date(),nW=weekOf(now),nD=(now.getDay()+6)%7,nM=now.getHours()*60+now.getMinutes();
+  return (d,m)=>W<nW||(W===nW&&(d<nD||(d===nD&&m<=nM)));
+}
+function suggestFixed(pid,onlyAvail){
+  const p=P(pid),f=p.freq,dur=p.dur||1,SL=slots(),{slot,end,dayPref}=S.settings;
+  const occ=[new Set(),new Set(),new Set(),new Set()],per=[{},{},{},{}];
+  for(const q of S.patients){if(q.id===pid||!q.freq||!q.slot)continue;
+    for(let w=0;w<4;w++){if(mod(w,q.freq)!==mod(q.slot.ph||0,q.freq))continue;per[w][q.slot.d]=(per[w][q.slot.d]||0)+1;
+      for(let k=0;k<(q.dur||1);k++)occ[w].add(K(q.slot.d,q.slot.m+k*slot));}}
+  const res=[];
+  for(let d=0;d<6;d++){if(dayPref[d]===2)continue;
+    for(const m of SL){
+      let ok=true,inAv=true,prefAll=true;
+      for(let k=0;k<dur;k++){const mm=m+k*slot,key=K(d,mm);if(mm+slot>end||!isWork(d,mm)){ok=false;break;}if(hasAvail(p)&&!p.avail[key])inAv=false;if(p.avail[key]!==2)prefAll=false;}
+      if(!ok||(onlyAvail&&!inAv))continue;
+      for(let ph=0;ph<f;ph++){
+        const weeks=[0,1,2,3].filter(w=>w%f===ph);
+        if(weeks.some(w=>{for(let k=0;k<dur;k++)if(occ[w].has(K(d,m+k*slot)))return true;return false;}))continue;
+        if(p.slot&&p.slot.d===d&&p.slot.m===m&&mod(p.slot.ph||0,f)===ph)continue;
+        let sc=0;const why=[];
+        const busy=weeks.filter(w=>per[w][d]).length/weeks.length;
+        if(busy===1){sc+=30;why.push('no abre día nuevo');}else if(busy>0){sc+=5;why.push('día con consulta algunas semanas');}else{sc-=40;why.push('abre un día');}
+        const bf=weeks.filter(w=>occ[w].has(K(d,m-slot))).length,af=weeks.filter(w=>occ[w].has(K(d,m+dur*slot))).length,n=weeks.length;
+        if(bf===n&&af===n){sc+=25;why.push('rellena un hueco');}else if(bf===n||af===n){sc+=15;why.push('junto a otra sesión');}
+        if(dayPref[d]===1){sc-=25;why.push('día que prefieres libre');}
+        if(!inAv){sc-=20;why.push('fuera de su disponibilidad');}else if(prefAll&&anyPref(p)){sc+=10;why.push('su horario preferido');}
+        if(f>1)why.unshift(phaseLabel(f,ph));
+        res.push({d,m,ph,sc,why});
+      }
+    }
+  }
+  res.sort((a,b)=>b.sc-a.sc||a.d-b.d||a.m-b.m||a.ph-b.ph);
+  return res.slice(0,8);
+}
+function firstW(p,a){const now=new Date(),W0=weekOf(now),past=pastFn(W0);for(let i=0;i<9;i++){const W=W0+i;if(mod(W,p.freq||1)!==mod(a.ph||0,p.freq||1))continue;if(W===W0&&past(a.d,a.m))continue;return W;}return W0;}
+const firstName=n=>n.split(/\s+/).filter(t=>!/^[A-ZÁÉÍÓÚÑ]\.?$/.test(t)).join(' ')||n;
+const dayPl=d=>d===5?'sábados':DAYS_L[d].toLowerCase();
+
+function offerOpts(){
+  const o=UI.offer;
+  if(o.mode==='fixed')return suggestFixed(o.pid,o.onlyAvail).map(s=>({...s,key:s.d+'-'+s.m+'-'+s.ph}));
+  const W=o.W0+(o.mode==='w1'?1:0),wd=weekData(W);
+  const cur=wd.list.find(s=>s.pid===o.pid&&s.kind!=='extra'&&s.kind!=='from');
+  o.ctx={W,pid:o.pid,kind:cur?(cur.kind==='cancel'?'cancel':'rec'):'new',d:cur?cur.d:-1,m:cur?cur.m:-1};
+  return suggest(o.ctx,o.onlyAvail).map(s=>({...s,ph:0,key:s.d+'-'+s.m+'-0'}));
+}
+function offerMsg(){
+  const o=UI.offer,p=P(o.pid),opts=o.opts.filter(x=>o.sel.has(x.key));
+  if(!opts.length)return '';
+  const hi='Hola, '+firstName(p.name)+'. ';
+  if(o.mode==='fixed'){
+    const fr=p.freq===1?'cada semana':p.freq===2?'cada dos semanas':'cada cuatro semanas';
+    return hi+'Para tu hora fija ('+fr+') tengo estas opciones:\n'+opts.map(x=>'• Los '+dayPl(x.d)+' a las '+hm(x.m)+', empezando el '+dLabel(firstW(p,x),x.d)).join('\n')+'\n¿Cuál te viene mejor?';
+  }
+  const W=o.ctx.W,nW=weekOf(new Date());
+  const when=W===nW?'Esta semana':W===nW+1?'La semana que viene':'La semana del '+dLabel(W,0);
+  const intro=o.ctx.kind==='new'?' tengo libre:':' puedo ofrecerte:';
+  return hi+when+intro+'\n'+opts.map(x=>'• '+DAYS_L[x.d]+' '+dLabel(W,x.d)+' a las '+hm(x.m)).join('\n')+'\n¿Cuál te viene mejor?';
+}
+
+function setOfferMsg(){const t=document.getElementById('off-msg');if(!t)return;t.value=offerMsg();updWa();}
+function updWa(){const t=document.getElementById('off-msg'),a=document.getElementById('off-wa');if(t&&a)a.href='https://wa.me/?text='+encodeURIComponent(t.value);}
+function bookOffer(key){
+  const o=UI.offer,p=P(o.pid),x=o.opts.find(y=>y.key===key);if(!x)return;
+  if(o.mode==='fixed'){p.slot={d:x.d,m:x.m,ph:x.ph};closeSheet();commit();toast(p.name+': hora fija '+slotLabel(p));return;}
+  const W=o.ctx.W,w=wk(W,true);
+  if(o.ctx.kind==='new')w.ex.push({id:uid(),pid:p.id,kind:'extra',d:x.d,m:x.m});
+  else{w.ex=w.ex.filter(e=>!(e.pid===p.id&&e.kind!=='extra'));if(!(p.slot&&p.slot.d===x.d&&p.slot.m===x.m))w.ex.push({id:uid(),pid:p.id,kind:'move',d:x.d,m:x.m});}
+  UI.flash={W,pid:p.id};cleanWeek(W);closeSheet();UI.W=W;UI.view='week';commit(true);
+  toast(p.name+': '+DAYS_L[x.d].toLowerCase()+' '+dLabel(W,x.d)+', '+hm(x.m));
+}
+
+async function copyText(txt,okMsg){
+  try{await navigator.clipboard.writeText(txt);toast(okMsg||'Copiado');}
+  catch(e){openSheet(`<h3>Cópialo a mano</h3><p class="hint">Tu navegador no deja copiar automáticamente. Selecciona el texto y cópialo.</p><textarea rows="8" readonly id="manual-copy">${esc(txt)}</textarea>`);const t=document.getElementById('manual-copy');t.focus();t.select();}
+}
+
+
+function doMoveTo(d,m){
+  const c=UI.ctx,w=wk(c.W,true),p=P(c.pid);
+  if(c.kind==='extra'){const e=w.ex.find(e=>e.id===c.exId);if(e){e.d=d;e.m=m;}}
+  else{w.ex=w.ex.filter(e=>!(e.pid===c.pid&&e.kind!=='extra'));if(!(p.slot&&p.slot.d===d&&p.slot.m===m))w.ex.push({id:uid(),pid:c.pid,kind:'move',d,m});}
+  UI.flash={W:c.W,pid:c.pid};cleanWeek(c.W);closeSheet();commit(true);toast(p.name+': '+DAYS_L[d].toLowerCase()+' a las '+hm(m));
+}
+function doCancel(){
+  const c=UI.ctx,w=wk(c.W,true),p=P(c.pid);
+  if(c.kind==='extra')w.ex=w.ex.filter(e=>e.id!==c.exId);
+  else{w.ex=w.ex.filter(e=>!(e.pid===c.pid&&e.kind!=='extra'));w.ex.push({id:uid(),pid:c.pid,kind:'cancel'});}
+  cleanWeek(c.W);closeSheet();commit(true);toast('Sesión de '+p.name+' cancelada esta semana');
+}
+function doUndo(){
+  const c=UI.ctx,w=wk(c.W,true);
+  if(c.kind==='extra')w.ex=w.ex.filter(e=>e.id!==c.exId);
+  else w.ex=w.ex.filter(e=>!(e.pid===c.pid&&e.kind!=='extra'));
+  cleanWeek(c.W);closeSheet();commit(true);toast('Cambio deshecho');
+}
+async function runOpt(){
+  if(UI.busy)return;
+  if(!S.patients.some(p=>p.freq&&!(p.locked&&p.slot))){toast('No hay pacientes que se puedan mover');return;}
+  UI.busy=true;render();await sleep(30);
+  const assign=await runOptimizer(pr=>{const b=document.getElementById('opt-prog');if(b)b.style.width=(pr*100)+'%';});
+  UI.opt={assign,moved:diffPlan(assign)};UI.busy=false;UI.optCycle=0;render();
+  const r=document.getElementById('opt-res');if(r)r.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});
+}
+function applyOpt(){
+  const A=UI.opt.assign;
+  for(const p of S.patients){if(!p.freq||(p.locked&&p.slot))continue;p.slot=A[p.id]?{...A[p.id]}:null;}
+  UI.view='week';commit();toast('Horario aplicado. Los cambios de semanas concretas se mantienen.');window.scrollTo(0,0);
+}
+function regrid(ns,ne,nsl){
+  const st=S.settings,os=st.start,osl=st.slot;
+  if(ne-ns<nsl){toast('El horario es demasiado corto');render();return;}
+  st.start=ns;st.end=ne;st.slot=nsl;
+  const SL=slots();
+  const snap=m=>SL[nearestIdx(SL,m)];
+  const remap=old=>{const out={};for(let d=0;d<6;d++)for(const m of SL){const om=os+Math.floor((m-os)/osl)*osl;const v=old[K(d,om)];if(v)out[K(d,m)]=v;}return out;};
+  st.working=remap(st.working);
+  S.patients.forEach(p=>{p.avail=remap(p.avail);if(p.slot)p.slot.m=snap(p.slot.m);});
+  for(const W in S.weeks){const w=S.weeks[W];w.ex.forEach(e=>{if(e.m!=null)e.m=snap(e.m);});
+    const nb={};for(const k in w.blk){if(!k.includes('-'))nb[k]=1;else{const [d,m]=k.split('-').map(Number);nb[K(d,snap(m))]=1;}}w.blk=nb;}
+  commit();
+}
+
+
+/* ---------- pintar rejillas (disponibilidad y horario) ---------- */
+let paint=null;
+document.addEventListener('pointerdown',e=>{
+  const c=e.target.closest('.pc');if(!c)return;
+  const g=c.closest('.pg'),map=painterMaps[g.dataset.pg];if(!map)return;
+  const cur=+c.dataset.v,nv=g.dataset.mode==='avail'?(cur+1)%3:(cur?0:1);
+  paint={g,map,nv};setCell(c,nv);e.preventDefault();
+});
+document.addEventListener('pointermove',e=>{
+  if(!paint)return;const el=document.elementFromPoint(e.clientX,e.clientY);
+  const c=el&&el.closest?el.closest('.pc'):null;if(c&&paint.g.contains(c))setCell(c,paint.nv);
+});
+function endPaint(){if(!paint)return;const id=paint.g.dataset.pg;paint=null;if(id==='work')commit();}
+document.addEventListener('pointerup',endPaint);
+document.addEventListener('pointercancel',endPaint);
+function setCell(c,v){if(+c.dataset.v===v)return;c.dataset.v=v;const k=c.dataset.k;if(v)paint.map[k]=v;else delete paint.map[k];}
+
+
+/* ---------- guardado ---------- */
+const toastEl=document.getElementById('toast');let toastT=null;
+function toast(msg){toastEl.textContent=msg;toastEl.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>toastEl.classList.remove('on'),2800);}
+function saveLocal(){try{localStorage.setItem(LS_KEY,JSON.stringify(S));}catch(e){}}
+function commit(keepOpt){
+  S.updated=Date.now();if(!keepOpt)UI.opt=null;
+  saveLocal();
+  if(ref&&dbOk){clearTimeout(saveT);setSync('saving');saveT=setTimeout(flush,700);}
+  render();
+}
+async function flush(){
+  if(saving){pending=true;return;}
+  saving=true;
+  try{await ref.set({json:JSON.stringify(S),updated:S.updated});retried=false;setSync('ok');}
+  catch(e){
+    const code=e&&e.code;
+    if(code==='unavailable'&&!retried){retried=true;saving=false;await sleep(1200+Math.random()*1200);return flush();}
+    if(code==='invalid_argument'){dbOk=false;setSync('ro');}
+    else setSync('err');
+  }
+  saving=false;
+  if(pending){pending=false;flush();}
+}
+async function boot(){
+  let local=null;try{local=normalize(JSON.parse(localStorage.getItem(LS_KEY)));}catch(e){}
+  S=local||demoState();
+  render();
+  if(!window.claude||!window.claude.use){setSync('local');try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist();}catch(e){}return;}
+  try{
+    const db=await window.claude.use('db');
+    if(!db){setSync('local');return;}
+    const user=await window.claude.use('user');
+    const id=user?await user.id():null;
+    if(!id){setSync('local');return;}
+    ref=db.collection('data/users/'+id).doc('agenda');
+    const timer=setTimeout(()=>setSync('slow'),10000);
+    const snap=await ref.get();clearTimeout(timer);
+    dbOk=true;
+    if(snap.exists){
+      let remote=null;try{remote=normalize(JSON.parse(snap.data().json));}catch(e){}
+      if(remote&&(!local||(remote.updated||0)>=(local.updated||0))){S=remote;saveLocal();render();setSync('ok');}
+      else if(local&&!local.demo){setSync('saving');flush();}
+      else setSync('ok');
+    }else{
+      if(local&&!local.demo){setSync('saving');flush();}else setSync('ok');
+    }
+  }catch(e){dbOk=false;setSync('err');}
+}
+
+/* ---------- navegación ---------- */
+function go(v){UI.view=v;closeSheet();render();window.scrollTo(0,0);}
+const showAB=()=>S.patients.some(p=>p.freq>1);
+function rangeLabel(W,days){const a=weekDate(W,days[0]),b=weekDate(W,days[days.length-1]);
+  return a.getUTCMonth()===b.getUTCMonth()?a.getUTCDate()+' – '+b.getUTCDate()+' '+MONTHS[b.getUTCMonth()]:dLabel(W,days[0])+' – '+dLabel(W,days[days.length-1]);}
+
+/* ---------- calendario ---------- */
+function visibleDays(list,blk){const SL=slots(),used=new Set(list.map(s=>s.d));const d=[0,1,2,3,4,5].filter(d=>used.has(d)||SL.some(m=>isWork(d,m))||blk[d]);return d.length?d:[0,1,2,3,4];}
+function gridHTML({W=null,list,blk={},interactive=false,changed=null}){
+  const SL=slots(),si={};SL.forEach((m,i)=>si[m]=i);
+  const days=visibleDays(list,blk),col={};days.forEach((d,i)=>col[d]=i+2);
+  const tW=weekOf(new Date()),tD=(new Date().getDay()+6)%7;
+  let h=`<div class="wkwrap"><div class="wk" style="--nd:${days.length}"><div style="grid-row:1;grid-column:1"></div>`;
+  for(const d of days){
+    const isT=W===tW&&d===tD,b=W!==null&&blk[d];
+    const inner=`<span>${DAYS[d]}</span>${W!==null?`<b>${weekDate(W,d).getUTCDate()}</b>`:''}`;
+    h+=interactive?`<button class="wh${isT?' today':''}${b?' blk':''}" data-a="day" data-d="${d}" style="grid-row:1;grid-column:${col[d]}" aria-label="${DAYS_L[d]} ${dLabel(W,d)}${b?', bloqueado':''}">${inner}</button>`
+      :`<div class="wh" style="grid-row:1;grid-column:${col[d]}">${inner}</div>`;
+  }
+  SL.forEach((m,i)=>{
+    const r=i+2;h+=`<div class="tl" style="grid-row:${r};grid-column:1">${hm(m)}</div>`;
+    for(const d of days){
+      const k=K(d,m),isT=W===tW&&d===tD;
+      const cls=((blk[d]||blk[k])?' blk':!isWork(d,m)?' off':isT?' today':'');
+      h+=interactive?`<button class="c${cls}" style="grid-row:${r};grid-column:${col[d]}" data-a="cell" data-d="${d}" data-m="${m}" aria-label="${DAYS_L[d]} ${hm(m)}, libre"></button>`
+        :`<div class="c${cls}" style="grid-row:${r};grid-column:${col[d]}"></div>`;
+    }
+  });
+  const groups={};
+  for(const s of list){let i=si[s.m];if(i===undefined)i=nearestIdx(SL,s.m);const key=s.d+'|'+i;(groups[key]=groups[key]||{d:s.d,i,items:[]}).items.push(s);}
+  for(const g of Object.values(groups)){
+    if(col[g.d]===undefined)continue;
+    const span=Math.max(...g.items.map(s=>(s.kind==='cancel'||s.kind==='from')?1:s.dur));
+    const rs=Math.max(1,Math.min(span,SL.length-g.i));
+    h+=`<div class="sg${g.items.length>1?' multi':''}" style="grid-row:${g.i+2} / span ${rs};grid-column:${col[g.d]}">`;
+    for(const s of g.items)h+=chipHTML(s,interactive,changed,W);
+    h+='</div>';
+  }
+  return h+'</div></div>';
+}
+function chipHTML(s,interactive,changed,W){
+  const p=s.p;let cls='ss',tg='';
+  if(s.kind==='cancel'){cls+=' cx';tg='cancelada';}
+  else if(s.kind==='from'){cls+=' cx';tg='movida';}
+  else if(s.kind==='move')tg='cambio';
+  else if(s.kind==='extra')tg='puntual';
+  if(s.issues&&s.issues.length){cls+=' bad';tg=s.issues[0];}
+  if(changed&&changed.has(p.id)){cls+=' chg';tg='';}
+  if(UI.flash&&W===UI.flash.W&&p.id===UI.flash.pid&&s.kind!=='cancel'&&s.kind!=='from')cls+=' flash';
+  const body=`<span class="nm">${esc(p.name)}</span>${tg?`<span class="tg">${tg}</span>`:''}`;
+  if(!interactive)return `<div class="${cls}" style="${pcol(p)}">${body}</div>`;
+  return `<button class="${cls}" style="${pcol(p)}" data-a="sess" data-pid="${p.id}" data-k="${s.kind}" data-ex="${s.exId||''}" data-d="${s.d}" data-m="${s.m}" aria-label="${esc(p.name+', '+DAYS_L[s.d]+' '+hm(s.m)+(tg?', '+tg:''))}">${body}</button>`;
+}
+
+/* ---------- pantallas ---------- */
+function backBar(title,extra=''){return `<div class="bar"><button class="link back" data-a="go" data-v="week">‹ Agenda</button></div><div class="titlerow"><h1>${title}</h1>${extra}</div>`;}
+function viewWeek(){
+  const W=UI.W,wd=weekData(W),nW=weekOf(new Date());
+  const issues=wd.live.filter(s=>s.issues.length).length,sinHora=S.patients.filter(p=>p.freq&&!p.slot).length;
+  const days=visibleDays(wd.list,wd.blk);
+  let h='';
+  if(syncS==='ro'||syncS==='err')h+=`<button class="notice" data-a="go" data-v="set">No se está guardando en tu cuenta. Ver por qué</button>`;
+  h+=`<div class="bar"><h1>Agenda</h1><button class="link" data-a="go" data-v="set">Ajustes</button></div>`;
+  if(S.demo)h+=`<div class="demo">Estos pacientes son de ejemplo. <button class="link" data-a="reset-ask">Borrarlos y empezar</button></div>`;
+  const when=W===nW?'Esta semana':W===nW+1?'La semana que viene':W===nW-1?'La semana pasada':'';
+  h+=`<div class="wknav"><button class="arrow" data-a="wk" data-v="-1" aria-label="Semana anterior">‹</button><div class="t"><b>${rangeLabel(W,days)}</b><small>${[when,showAB()?'Semana '+abLabel(W):''].filter(Boolean).join(' · ')}${W!==nW?` <button class="link sm" data-a="wk" data-v="0">Ir a hoy</button>`:''}</small></div><button class="arrow" data-a="wk" data-v="1" aria-label="Semana siguiente">›</button></div>`;
+  if(issues||sinHora)h+=`<p class="alerts">${issues?`<span class="bad">${issues===1?'Hay 1 conflicto: toca la sesión en rojo':'Hay '+issues+' conflictos: toca las sesiones en rojo'}</span>`:''}${sinHora?`<button class="link sm" data-a="go" data-v="opt">${sinHora===1?'1 paciente sin hora fija':sinHora+' pacientes sin hora fija'}</button>`:''}</p>`;
+  if(!S.patients.length)h+=`<div class="start"><p class="foot">Empieza añadiendo a tus pacientes: cada cuánto vienen y cuándo pueden.</p><button class="btn primary" data-a="p-new">Añadir el primer paciente</button></div>`;
+  h+=gridHTML({W,list:wd.list,blk:wd.blk,interactive:true});
+  const w=S.weeks[W];
+  if(w&&(w.ex.length||Object.keys(w.blk).length)){
+    h+=`<section><h2>Cambios de esta semana</h2><div class="list">`;
+    for(const e of w.ex){const p=P(e.pid);if(!p)continue;
+      const t=e.kind==='cancel'?'Cancela'+(p.slot?' el '+DAYS_L[p.slot.d].toLowerCase()+' a las '+hm(p.slot.m):''):e.kind==='move'?'Pasa al '+DAYS_L[e.d].toLowerCase()+' a las '+hm(e.m):'Sesión puntual el '+DAYS_L[e.d].toLowerCase()+' a las '+hm(e.m);
+      h+=`<div class="item"><span class="main"><b>${esc(p.name)}</b><small>${t}</small></span><button class="link" data-a="ex-undo-id" data-ex="${e.id}">Deshacer</button></div>`;}
+    for(const k of Object.keys(w.blk)){
+      const t=k.includes('-')?(()=>{const [d,m]=k.split('-').map(Number);return DAYS_L[d]+' a las '+hm(m);})():DAYS_L[+k]+', todo el día';
+      h+=`<div class="item"><span class="main"><b>Bloqueado</b><small>${t}</small></span><button class="link" data-a="blk-rm" data-k="${k}">Quitar</button></div>`;}
+    h+=`</div></section>`;
+  }
+  return h;
+}
+function patientRows(){
+  const iss=baseIssues(),q=UI.pSearch.trim().toLowerCase();
+  const list=[...S.patients].filter(p=>p.name.toLowerCase().includes(q)).sort((a,b)=>a.name.localeCompare(b.name,'es'));
+  if(!S.patients.length)return `<p class="empty">Todavía no hay pacientes. Añade el primero con cada cuánto viene y cuándo puede.</p>`;
+  if(!list.length)return `<p class="empty">Nadie se llama así.</p>`;
+  return list.map(p=>{
+    const i=[...(iss[p.id]||[])];const warn=i.find(x=>x!=='Sin hora')||(i.includes('Sin hora')?'Sin hora':'');
+    const sub=FREQ_L[p.freq]+(p.freq&&p.slot?' · '+slotLabel(p):'')+(p.locked&&p.slot?' · fija':'')+(p.dur>1?' · '+p.dur*S.settings.slot+' min':'');
+    return `<button class="item" data-a="p-edit" data-pid="${p.id}"><i class="dot" style="${pcol(p)}"></i><span class="main"><b>${esc(p.name)}</b><small>${sub}</small></span>${warn?`<span class="${warn==='Sin hora'?'soft':'warn'}">${warn==='Sin hora'?'Sin hora fija':warn}</span>`:''}</button>`;
+  }).join('');
+}
+function viewPatients(){
+  let h=backBar('Pacientes',`<button class="btn primary sm" data-a="p-new">Añadir</button>`);
+  if(S.patients.length>8)h+=`<input type="search" id="p-q" placeholder="Buscar" value="${esc(UI.pSearch)}" aria-label="Buscar paciente">`;
+  h+=`<div class="list" id="plist">${patientRows()}</div>`;
+  h+=`<p class="foot">Usa el nombre con la inicial o un alias. No guardes aquí datos clínicos.</p>`;
+  return h;
+}
+const daysTxt=(x)=>fmtN(x)+(x===1?' día':' días')+' por semana'+(Number.isInteger(x)?'':' de media');
+const listDays=a=>a.map(d=>DAYS_L[d].toLowerCase()).join(', ').replace(/, ([^,]*)$/,' y $1');
+function viewOpt(){
+  const cur=planStats(currentAssign()),st=S.settings;
+  let h=backBar('Reorganizar');
+  let lead=`Ahora pasas consulta ${daysTxt(cur.days)}, con ${fmtH(cur.gapsH)} de huecos.`;
+  if(cur.unas)lead+=` ${cur.unas} ${cur.unas===1?'paciente no tiene':'pacientes no tienen'} hora fija.`;
+  if(cur.ovl||cur.outside)lead+=` Hay sesiones que se solapan o no encajan.`;
+  h+=`<p class="lead">${lead}</p>`;
+  const SL=slots(),wdays=[0,1,2,3,4,5].filter(d=>SL.some(m=>isWork(d,m)));
+  h+=`<section><h2>Días que quieres libres</h2><div class="days" style="--n:${wdays.length}">${wdays.map(d=>`<button data-a="dfree" data-d="${d}" aria-pressed="${st.dayPref[d]===2}">${DAYS[d]}</button>`).join('')}</div></section>`;
+  const sv=st.w.stab>=3?0:st.w.stab>=1?1:2;
+  h+=`<section><h2>¿Cuánto puede cambiar el horario?</h2><div class="seg">${['Poco','Algo','Lo necesario'].map((t,i)=>`<button data-a="stab" data-v="${i}" aria-pressed="${sv===i}">${t}</button>`).join('')}</div></section>`;
+  h+=UI.busy?`<div class="prog" aria-label="Buscando"><i id="opt-prog"></i></div>`:`<button class="btn primary block" data-a="opt-run">Buscar el mejor horario</button>`;
+  if(UI.opt){
+    const R=UI.opt,af=planStats(R.assign);
+    h+=`<section id="opt-res"><h2>Propuesta</h2>`;
+    if(!R.moved.length)h+=`<p class="lead">Tu horario ya es el mejor que encuentro con estas preferencias.</p>`;
+    else{
+      let t=`Pasarías a ${daysTxt(af.days)} y ${fmtH(af.gapsH)} de huecos.`;
+      if(af.free.length)t+=` Te quedan libres: ${listDays(af.free)}.`;
+      t+=` Cambian ${R.moved.length} ${R.moved.length===1?'paciente':'pacientes'}.`;
+      h+=`<p class="lead">${t}</p><div class="list">`+R.moved.map(x=>`<div class="item"><span class="main"><b>${esc(x.p.name)}</b><small>${x.from?slotLabel(x.p,x.from):'Sin hora'} → ${x.to?slotLabel(x.p,x.to):'no encaja en su disponibilidad'}</small></span></div>`).join('')+`</div>`;
+      const maxF=Math.max(1,...S.patients.filter(p=>p.freq).map(p=>p.freq));
+      if(maxF>1)h+=`<div class="seg">${[...Array(maxF).keys()].map(c=>`<button data-a="opt-cycle" data-v="${c}" aria-pressed="${UI.optCycle===c}">${maxF===2?'Semana '+(c?'B':'A'):'Sem. '+(c+1)}</button>`).join('')}</div>`;
+      h+=gridHTML({list:planList(R.assign,Math.min(UI.optCycle,maxF-1)),changed:new Set(R.moved.map(x=>x.p.id))});
+      h+=`<button class="btn primary block" data-a="opt-apply">Aplicar este horario</button>`;
+      h+=`<div class="links"><button class="link" data-a="opt-copy">Copiar avisos para pacientes</button><button class="link" data-a="opt-run">Ver otra opción</button><button class="link" data-a="opt-discard">Descartar</button></div>`;
+    }
+    h+=`</section>`;
+  }
+  return h;
+}
+function painterHTML(id,mode,map){
+  const SL=slots();
+  let h=`<div class="pg" data-pg="${id}" data-mode="${mode}"><div></div>`+DAYS.map(d=>`<div class="pgh">${d}</div>`).join('');
+  for(const m of SL){h+=`<div class="pgt">${hm(m)}</div>`;
+    for(let d=0;d<6;d++){const k=K(d,m),v=map[k]||0;h+=`<div class="pc${mode==='avail'&&!isWork(d,m)?' nw':''}" data-k="${k}" data-v="${v}"></div>`;}}
+  return h+'</div>';
+}
+function timeOpts(from,to,sel){let h='';for(let m=from;m<=to;m+=30)h+=`<option value="${m}" ${m===sel?'selected':''}>${hm(m)}</option>`;return h;}
+function viewSettings(){
+  const st=S.settings;
+  let h=backBar('Ajustes');
+  h+=`<section><h2>Horario</h2><div class="grid3">`;
+  h+=`<label class="f" for="s-start">Empiezas<select id="s-start">${timeOpts(360,780,st.start)}</select></label>`;
+  h+=`<label class="f" for="s-end">Terminas<select id="s-end">${timeOpts(720,1440,st.end)}</select></label>`;
+  h+=`<label class="f" for="s-slot">Cada sesión<select id="s-slot">${[30,45,50,60].map(v=>`<option value="${v}" ${v===st.slot?'selected':''}>${v} min</option>`).join('')}</select></label></div>`;
+  h+=`<label class="f" for="w-max">Máximo de sesiones al día<select id="w-max">${[0,3,4,5,6,7,8,9,10,12].map(v=>`<option value="${v}" ${v===(+st.maxPerDay||0)?'selected':''}>${v?v:'Sin límite'}</option>`).join('')}</select></label></section>`;
+  h+=`<section><h2>Horas de consulta</h2><p class="foot">Toca o arrastra. Blanco: pasas consulta. Gris: no.</p>`+painterHTML('work','work',st.working)+`<div class="links"><button class="link" data-a="copy-mon">Copiar el lunes al resto de la semana</button></div></section>`;
+  h+=`<section><h2>Tus datos</h2><p class="sync-t">${SYNC_LONG[syncS]}</p><div class="row">${window.claude?'':'<button class="btn sm" data-a="bk-dl">Descargar copia</button>'}<button class="btn sm" data-a="bk-copy">Copiar copia de seguridad</button><button class="btn sm" data-a="bk-import">Restaurar copia</button></div><div class="links"><button class="link" data-a="demo-ask">Cargar ejemplo</button><button class="link red" data-a="reset-ask">Borrar todo</button></div></section>`;
+  return h;
+}
+function render(){
+  const main=document.getElementById('main');
+  main.innerHTML=UI.view==='week'?viewWeek():UI.view==='pat'?viewPatients():UI.view==='opt'?viewOpt():viewSettings();
+  document.getElementById('dock').hidden=UI.view!=='week';
+  document.body.classList.toggle('hasdock',UI.view==='week');
+  painterMaps.work=S.settings.working;
+  if(UI.flash){clearTimeout(UI.flashT);UI.flashT=setTimeout(()=>{UI.flash=null;},1600);}
+}
+
+/* ---------- paneles ---------- */
+const sheetWrap=document.getElementById('sheet'),sheetEl=document.getElementById('sheet-body');
+let lastFocus=null;
+function openSheet(html,keepScroll){
+  const sc=sheetEl.scrollTop;if(sheetWrap.hidden)lastFocus=document.activeElement;
+  sheetEl.innerHTML=`<button class="x" data-a="close" aria-label="Cerrar">×</button>`+html;
+  sheetWrap.hidden=false;
+  if(keepScroll)sheetEl.scrollTop=sc;else{sheetEl.scrollTop=0;const f=sheetEl.querySelector('h3');if(f){f.tabIndex=-1;f.focus({preventScroll:true});}}
+}
+function closeSheet(){if(sheetWrap.hidden)return;sheetWrap.hidden=true;sheetEl.innerHTML='';UI.draft=null;UI.delAsk=false;if(lastFocus&&document.contains(lastFocus))lastFocus.focus({preventScroll:true});}
+const B=(a,t,cls='',extra='')=>`<button class="btn block ${cls}" data-a="${a}" ${extra}>${t}</button>`;
+function sheetSession(ds){
+  const p=P(ds.pid);if(!p)return;const W=UI.W,kind=ds.k,d=+ds.d,m=+ds.m,ex=ds.ex?findEx(W,ds.ex):null;
+  UI.ctx={W,pid:p.id,kind,exId:ds.ex||null,d,m};
+  const s=weekData(W).list.find(x=>x.pid===p.id&&x.kind===kind&&(x.exId||'')===(ds.ex||''));
+  let when=`${DAYS_L[d]} ${dLabel(W,d)}, ${hm(m)}`;
+  if(kind==='cancel')when+=' · cancelada';
+  if((kind==='move'||kind==='from')&&ex&&p.slot)when=`${DAYS_L[ex.d]} ${dLabel(W,ex.d)}, ${hm(ex.m)} · movida desde el ${DAYS_L[p.slot.d].toLowerCase()} a las ${hm(p.slot.m)}`;
+  if(kind==='extra')when+=' · sesión puntual';
+  let h=`<h3><i class="dot" style="${pcol(p)}"></i>${esc(p.name)}</h3><p class="sub2">${when}</p>`;
+  if(s&&s.issues.length)h+=`<p class="err">Conflicto: ${s.issues.join(', ')}.</p>`;
+  h+=`<div class="stack">`;
+  if(kind==='rec')h+=B('move-pick','Cambiar la hora solo esta semana','primary')+B('ex-cancel','Cancelar solo esta semana')+B('p-offer','Mandarle huecos por WhatsApp','',`data-pid="${p.id}"`);
+  if(kind==='cancel')h+=B('move-pick','Buscarle otra hora','primary')+B('give-slot','Dar el hueco a otra persona')+B('ex-undo','Deshacer la cancelación');
+  if(kind==='move'||kind==='from')h+=B('move-pick','Elegir otra hora','primary')+B('ex-undo','Volver a su hora de siempre')+B('ex-cancel','Cancelar esta semana');
+  if(kind==='extra')h+=B('move-pick','Cambiar la hora','primary')+B('ex-undo','Quitar esta sesión');
+  h+=`</div><div class="links"><button class="link" data-a="p-edit" data-pid="${p.id}">Ver ficha</button></div>`;
+  openSheet(h);
+}
+function sheetMove(){
+  const c=UI.ctx,p=P(c.pid),sug=suggest(c,UI.onlyAvail);
+  let h=`<h3>¿A qué hora esta semana?</h3><p class="sub2">${esc(p.name)}. Primero, las horas que no abren días nuevos ni dejan huecos.</p><div class="stack">`;
+  if(!sug.length)h+=`<p class="empty">No queda ningún hueco libre${UI.onlyAvail&&hasAvail(p)?' en su disponibilidad':''}.</p>`;
+  for(const s of sug)h+=`<button class="opt" data-a="move-to" data-d="${s.d}" data-m="${s.m}"><b>${DAYS_L[s.d]} ${weekDate(c.W,s.d).getUTCDate()}, ${hm(s.m)}</b><small>${s.why[s.why.length>1&&s.why[0]==='no abre día nuevo'?1:0]}</small></button>`;
+  h+=`</div>`;
+  if(hasAvail(p))h+=`<div class="links"><button class="link" data-a="only-av-t">${UI.onlyAvail?'Ver también horas fuera de su disponibilidad':'Ver solo su disponibilidad'}</button></div>`;
+  openSheet(h);
+}
+function sheetDay(d){
+  const W=UI.W,w=S.weeks[W],b=!!(w&&w.blk[d]);
+  const ss=weekData(W).list.filter(s=>s.d===d&&s.kind!=='from').sort((a,b)=>a.m-b.m);
+  let h=`<h3>${DAYS_L[d]} ${dLabel(W,d)}</h3><div class="stack">`;
+  if(!ss.length)h+=`<p class="empty">Sin sesiones.</p>`;
+  for(const s of ss)h+=`<button class="opt" data-a="sess" data-pid="${s.pid}" data-k="${s.kind}" data-ex="${s.exId||''}" data-d="${s.d}" data-m="${s.m}"><b><i class="dot" style="${pcol(s.p)}"></i>${hm(s.m)} · ${esc(s.p.name)}</b><small>${s.kind==='cancel'?'cancelada':s.issues.length?'reubicar':''}</small></button>`;
+  h+=`</div>`+B('blk-day',b?'Desbloquear este día':'Bloquear este día (solo esta semana)',b?'':'danger',`data-d="${d}"`);
+  if(!b&&ss.some(s=>s.kind!=='cancel'))h+=`<p class="foot">Sus sesiones quedarán marcadas para cambiarlas de hora.</p>`;
+  openSheet(h);
+}
+function sheetCell(d,m){
+  const W=UI.W,w=S.weeks[W],k=K(d,m),b=!!(w&&(w.blk[k]||w.blk[d]));
+  UI.ctx={W,d,m};
+  const cand=[...S.patients].map(p=>({p,v:p.avail[k]||0})).sort((a,b)=>(b.v>0)-(a.v>0)||b.v-a.v||a.p.name.localeCompare(b.p.name,'es'));
+  let h=`<h3>${DAYS_L[d]} ${dLabel(W,d)}, ${hm(m)}</h3>`;
+  if(!isWork(d,m))h+=`<p class="sub2">Fuera de tu horario.</p>`;
+  if(S.patients.length){
+    h+=`<h4>Añadir una sesión para</h4>`;
+    if(S.patients.length>8)h+=`<input type="search" id="cell-q" placeholder="Buscar" aria-label="Buscar paciente">`;
+    h+=`<div class="stack" id="cell-list">`+cand.map(({p,v})=>`<button class="opt" data-a="extra-add" data-pid="${p.id}" data-name="${esc(p.name.toLowerCase())}"><b><i class="dot" style="${pcol(p)}"></i>${esc(p.name)}</b><small>${v===2?'su hora preferida':v===1?'puede a esta hora':''}</small></button>`).join('')+`</div>`;
+  }
+  h+=B('blk-cell',b?'Desbloquear esta hora':'Bloquear esta hora (solo esta semana)',b?'':'danger',`data-d="${d}" data-m="${m}"`);
+  openSheet(h);
+}
+function sheetPatient(pid){
+  const p=pid?P(pid):null;
+  UI.draft=p?JSON.parse(JSON.stringify(p)):{id:null,name:'',freq:1,dur:1,avail:{},slot:null,locked:false,notes:'',c:nextHue()};
+  UI.delAsk=false;renderPatientSheet(false);
+}
+function renderPatientSheet(keep){
+  const d=UI.draft,SL=slots(),{slot}=S.settings;
+  let h=`<h3>${d.id?`<i class="dot" style="${pcol(d)}"></i>`+esc(d.name):'Nuevo paciente'}</h3>`;
+  h+=`<label class="f" for="p-name">Nombre<input id="p-name" type="text" value="${esc(d.name)}" placeholder="Marta G." autocomplete="off"></label><p class="err" id="p-err" hidden>Escribe un nombre o un alias.</p>`;
+  h+=`<div class="f"><span>Cada cuánto viene</span><div class="seg">${[1,2,4,0].map(f=>`<button data-a="d-freq" data-v="${f}" aria-pressed="${d.freq===f}">${f===4?'Cada 4 sem.':FREQ_L[f]}</button>`).join('')}</div></div>`;
+  h+=`<label class="f" for="p-dur">Duración<select id="p-dur">${[1,2,3].map(n=>`<option value="${n}" ${d.dur===n?'selected':''}>${n*slot} min</option>`).join('')}</select></label>`;
+  h+=`<div class="f"><span>Cuándo puede venir</span><p class="foot">Toca o arrastra sobre las horas. Si no marcas nada, puede a cualquier hora.</p></div>`;
+  h+=`<div class="key" style="${pcol(d)}"><span><i style="background:var(--cbg);box-shadow:inset 0 0 0 2px var(--bar)"></i>Puede (1 toque)</span><span><i style="background:var(--bar)"></i>Prefiere (2 toques)</span><span><i style="background:var(--off)"></i>No pasas consulta</span></div>`;
+  h+=`<div class="links"><button class="link" data-a="d-fill" data-v="am">Mañanas</button><button class="link" data-a="d-fill" data-v="pm">Tardes</button><button class="link" data-a="d-fill" data-v="all">Todo</button><button class="link" data-a="d-fill" data-v="clear">Borrar</button></div>`;
+  h+=painterHTML('avail','avail',d.avail).replace('<div class="pg"','<div class="pg" style="'+pcol(d)+'"');
+  if(d.freq){
+    const s=d.slot||{};
+    h+=`<div class="f"><span>Hora fija</span><div class="grid3">`;
+    h+=`<select id="p-sd" aria-label="Día"><option value="">Sin hora</option>${DAYS_L.map((n,i)=>`<option value="${i}" ${s.d===i?'selected':''}>${n}</option>`).join('')}</select>`;
+    const times=SL.includes(s.m)||s.m==null?SL:[...SL,s.m].sort((a,b)=>a-b);
+    h+=`<select id="p-sm" aria-label="Hora">${times.map(m=>`<option value="${m}" ${s.m===m?'selected':''}>${hm(m)}</option>`).join('')}</select>`;
+    if(d.freq>1)h+=`<select id="p-sph" aria-label="Qué semanas">${[...Array(d.freq).keys()].map(ph=>`<option value="${ph}" ${mod(s.ph||0,d.freq)===ph?'selected':''}>${d.freq===2?(ph?'Semanas B':'Semanas A'):'Semana '+(ph+1)+' de 4'}</option>`).join('')}</select>`;
+    h+=`</div></div>`;
+    if(d.freq>1)h+=`<p class="foot">Esta semana es ${d.freq===2?'semana '+abLabel(weekOf(new Date())):'la '+(mod(weekOf(new Date()),4)+1)+' de 4'}.</p>`;
+    h+=`<label class="chk"><input type="checkbox" id="p-lock" ${d.locked?'checked':''}> Esta hora no se puede cambiar</label>`;
+  }
+  h+=`<div class="stack">`+B('p-save','Guardar','primary')+B('p-offer-draft','Mandarle huecos por WhatsApp')+`</div>`;
+  if(d.id)h+=UI.delAsk?`<div class="confirm"><p>¿Eliminar a ${esc(d.name||'este paciente')}? Se borran también sus cambios de semana.</p><div class="row"><button class="btn danger" data-a="p-del-yes">Eliminar</button><button class="btn" data-a="p-del-no">No</button></div></div>`
+    :`<div class="links"><button class="link red" data-a="p-del">Eliminar paciente</button></div>`;
+  openSheet(h,keep);
+  painterMaps.avail=d.avail;
+}
+function syncDraft(){
+  const d=UI.draft;if(!d)return;const g=id=>document.getElementById(id);
+  if(g('p-name'))d.name=g('p-name').value;
+  if(g('p-dur'))d.dur=+g('p-dur').value;
+  if(g('p-lock'))d.locked=g('p-lock').checked;
+  if(g('p-sd')){const sd=g('p-sd').value;d.slot=sd===''?null:{d:+sd,m:+g('p-sm').value,ph:g('p-sph')?+g('p-sph').value:0};}
+}
+function persistDraft(){
+  syncDraft();const d=UI.draft;d.name=d.name.trim();
+  if(!d.name){document.getElementById('p-err').hidden=false;document.getElementById('p-name').focus();return null;}
+  if(!d.freq)d.slot=null;
+  if(d.slot)d.slot.ph=mod(d.slot.ph||0,d.freq);
+  if(d.id){const i=S.patients.findIndex(p=>p.id===d.id);S.patients[i]=d;}else{d.id=uid();S.patients.push(d);}
+  UI.draft=JSON.parse(JSON.stringify(d));commit();return d.id;
+}
+function savePatient(){const id=persistDraft();if(!id)return;const name=P(id).name;closeSheet();toast(name+' guardado');}
+function sheetOffer(pid,W0){
+  const p=P(pid),nW=weekOf(new Date());
+  UI.offer={pid,W0:Math.max(W0??nW,nW),mode:p.freq&&!p.slot?'fixed':'w0',onlyAvail:true,sel:null};
+  renderOffer();
+}
+function renderOffer(keep){
+  const o=UI.offer,p=P(o.pid),nW=weekOf(new Date());
+  o.opts=offerOpts();
+  if(!o.sel){const seen=new Set(),pick=[];for(const x of o.opts){const t=x.d+'-'+x.m;if(seen.has(t))continue;seen.add(t);pick.push(x.key);if(pick.length===3)break;}o.sel=new Set(pick);}
+  else o.sel=new Set([...o.sel].filter(k=>o.opts.some(x=>x.key===k)));
+  const W=o.mode==='fixed'?null:o.ctx.W;
+  const wl=W2=>W2===nW?'Esta semana':W2===nW+1?'La siguiente':'Sem. '+dLabel(W2,0);
+  const modes=[['w0',wl(o.W0)],['w1',wl(o.W0+1)]];if(p.freq)modes.push(['fixed','Hora fija']);
+  let h=`<h3>Huecos para ${esc(p.name)}</h3>`;
+  h+=`<div class="seg">${modes.map(([v,t])=>`<button data-a="off-mode" data-v="${v}" aria-pressed="${o.mode===v}">${t}</button>`).join('')}</div>`;
+  if(o.mode==='fixed'&&p.slot)h+=`<p class="sub2">Si elige una, sustituye su hora actual (${slotLabel(p)}).</p>`;
+  else if(o.mode!=='fixed'&&o.ctx.kind!=='new')h+=`<p class="sub2">Si elige una, se mueve su sesión de esa semana.</p>`;
+  h+=`<div class="stack">`;
+  if(!o.opts.length)h+=`<p class="empty">No hay huecos libres${o.onlyAvail&&hasAvail(p)?' en su disponibilidad':''}.</p>`;
+  for(const x of o.opts){const on=o.sel.has(x.key);
+    const t=o.mode==='fixed'?'Los '+dayPl(x.d)+', '+hm(x.m)+(p.freq>1?' · '+phaseLabel(p.freq,x.ph):''):DAYS_L[x.d]+' '+weekDate(W,x.d).getUTCDate()+', '+hm(x.m);
+    h+=`<div class="orow${on?' on':''}"><label><input type="checkbox" data-off="${x.key}" ${on?'checked':''}><b>${t}</b></label><button class="link" data-a="off-book" data-key="${x.key}">Reservar</button></div>`;}
+  h+=`</div>`;
+  if(hasAvail(p))h+=`<div class="links"><button class="link" data-a="off-only-t">${o.onlyAvail?'Ver también fuera de su disponibilidad':'Ver solo su disponibilidad'}</button></div>`;
+  if(o.opts.length){
+    h+=`<label class="f" for="off-msg">Mensaje<textarea id="off-msg" rows="6"></textarea></label>`;
+    h+=`<div class="row2"><a class="btn primary" id="off-wa" href="#" target="_blank" rel="noopener">Abrir WhatsApp</a><button class="btn" data-a="off-copy">Copiar</button></div>`;
+    h+=`<p class="foot">Cuando te conteste, toca Reservar en la hora que elija.</p>`;
+  }
+  openSheet(h,keep);setOfferMsg();
+}
+function sheetConfirm(kind){
+  const t=kind==='reset'?['¿Borrar todo?','Se eliminan pacientes, cambios y bloqueos.','Borrar todo','reset-yes']:['¿Cargar el ejemplo?','Sustituye todo lo que tienes ahora.','Cargar ejemplo','demo-yes'];
+  openSheet(`<h3>${t[0]}</h3><p class="sub2">${t[1]}</p><div class="row"><button class="btn danger" data-a="${t[3]}">${t[2]}</button><button class="btn" data-a="close">Cancelar</button></div>`);
+}
+function sheetImport(){
+  openSheet(`<h3>Restaurar copia</h3><p class="sub2">Pega la copia o elige el archivo. Sustituye todo lo actual.</p><textarea id="imp" rows="6" aria-label="Copia de seguridad"></textarea><input type="file" id="imp-file" accept=".json,.txt,application/json,text/plain" aria-label="Archivo de copia"><p class="err" id="imp-err" hidden>Ese texto no es una copia de esta agenda.</p><button class="btn primary block" data-a="bk-restore">Restaurar</button>`);
+}
+function setSync(s){const prev=syncS;syncS=s;document.querySelectorAll('.sync-t').forEach(x=>x.textContent=SYNC_LONG[s]);if(UI.view==='week'&&((s==='ro'||s==='err')!==(prev==='ro'||prev==='err')))render();}
+
+/* ---------- eventos ---------- */
+document.addEventListener('click',e=>{
+  const el=e.target.closest('[data-a]');if(!el)return;
+  const a=el.dataset.a,ds=el.dataset;
+  switch(a){
+    case 'go':go(ds.v);break;
+    case 'close':closeSheet();break;
+    case 'wk':UI.W=ds.v==='0'?weekOf(new Date()):UI.W+(+ds.v);render();break;
+    case 'day':sheetDay(+ds.d);break;
+    case 'cell':sheetCell(+ds.d,+ds.m);break;
+    case 'sess':sheetSession(ds);break;
+    case 'move-pick':sheetMove();break;
+    case 'only-av-t':UI.onlyAvail=!UI.onlyAvail;sheetMove();break;
+    case 'move-to':doMoveTo(+ds.d,+ds.m);break;
+    case 'ex-cancel':doCancel();break;
+    case 'ex-undo':doUndo();break;
+    case 'ex-undo-id':{const w=S.weeks[UI.W];if(w){w.ex=w.ex.filter(x=>x.id!==ds.ex);cleanWeek(UI.W);}commit(true);break;}
+    case 'give-slot':sheetCell(UI.ctx.d,UI.ctx.m);break;
+    case 'extra-add':{const c=UI.ctx,w=wk(c.W,true),p=P(ds.pid);w.ex.push({id:uid(),pid:p.id,kind:'extra',d:c.d,m:c.m});UI.flash={W:c.W,pid:p.id};closeSheet();commit(true);toast('Sesión de '+p.name+' añadida');break;}
+    case 'blk-day':{const w=wk(UI.W,true);if(w.blk[ds.d])delete w.blk[ds.d];else w.blk[ds.d]=1;cleanWeek(UI.W);closeSheet();commit(true);break;}
+    case 'blk-cell':{const w=wk(UI.W,true),k=K(+ds.d,+ds.m);if(w.blk[k])delete w.blk[k];else if(w.blk[ds.d]){toast('Todo el día está bloqueado. Desbloquéalo tocando el día.');break;}else w.blk[k]=1;cleanWeek(UI.W);closeSheet();commit(true);break;}
+    case 'blk-rm':{const w=S.weeks[UI.W];if(w){delete w.blk[ds.k];cleanWeek(UI.W);}commit(true);break;}
+    case 'p-new':sheetPatient(null);break;
+    case 'p-edit':sheetPatient(ds.pid);break;
+    case 'd-freq':syncDraft();UI.draft.freq=+ds.v;if(UI.draft.slot&&UI.draft.freq)UI.draft.slot.ph=mod(UI.draft.slot.ph||0,UI.draft.freq);renderPatientSheet(true);break;
+    case 'd-fill':{syncDraft();const d=UI.draft,SL=slots();
+      if(ds.v==='clear')d.avail={};
+      else for(let dd=0;dd<6;dd++)for(const m of SL){if(!isWork(dd,m))continue;if(ds.v==='am'&&m>=840)continue;if(ds.v==='pm'&&m<840)continue;const k=K(dd,m);if(!d.avail[k])d.avail[k]=1;}
+      renderPatientSheet(true);break;}
+    case 'p-save':savePatient();break;
+    case 'p-offer':sheetOffer(ds.pid,UI.view==='week'?UI.W:null);break;
+    case 'p-offer-draft':{const id=persistDraft();if(id)sheetOffer(id,null);break;}
+    case 'p-del':syncDraft();UI.delAsk=true;renderPatientSheet(true);break;
+    case 'p-del-no':syncDraft();UI.delAsk=false;renderPatientSheet(true);break;
+    case 'p-del-yes':{const id=UI.draft.id,name=UI.draft.name;S.patients=S.patients.filter(p=>p.id!==id);
+      for(const W in S.weeks){S.weeks[W].ex=S.weeks[W].ex.filter(e=>e.pid!==id);cleanWeek(W);}
+      closeSheet();commit();toast(name+' eliminado');break;}
+    case 'off-mode':UI.offer.mode=ds.v;UI.offer.sel=null;renderOffer(true);break;
+    case 'off-only-t':UI.offer.onlyAvail=!UI.offer.onlyAvail;renderOffer(true);break;
+    case 'off-book':bookOffer(ds.key);break;
+    case 'off-copy':copyText(document.getElementById('off-msg').value,'Mensaje copiado');break;
+    case 'opt-run':runOpt();break;
+    case 'opt-apply':applyOpt();break;
+    case 'opt-copy':copyText(optMessage(),'Avisos copiados');break;
+    case 'opt-discard':UI.opt=null;render();break;
+    case 'opt-cycle':UI.optCycle=+ds.v;render();break;
+    case 'dfree':{const d=+ds.d;S.settings.dayPref[d]=S.settings.dayPref[d]===2?0:2;commit(true);break;}
+    case 'stab':S.settings.w.stab=[4,2,0][+ds.v];commit(true);break;
+    case 'copy-mon':{const st=S.settings;for(let d=1;d<5;d++)for(const m of slots()){if(st.working[K(0,m)])st.working[K(d,m)]=1;else delete st.working[K(d,m)];}commit();toast('Lunes copiado de martes a viernes');break;}
+    case 'bk-copy':copyText(JSON.stringify(S),'Copia copiada. Guárdala en una nota o un correo.');break;
+    case 'bk-dl':{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(S)],{type:'application/json'}));const t=new Date();a.download='agenda-copia-'+t.getFullYear()+'-'+pad(t.getMonth()+1)+'-'+pad(t.getDate())+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000);toast('Copia descargada');break;}
+    case 'bk-import':sheetImport();break;
+    case 'bk-restore':{let s=null;try{s=normalize(JSON.parse(document.getElementById('imp').value));}catch(err){}
+      if(!s){document.getElementById('imp-err').hidden=false;break;}
+      s.demo=false;S=s;UI.opt=null;closeSheet();commit();toast('Copia restaurada');break;}
+    case 'reset-ask':sheetConfirm('reset');break;
+    case 'demo-ask':sheetConfirm('demo');break;
+    case 'reset-yes':S=emptyState();UI.opt=null;UI.view='pat';closeSheet();commit();toast('Agenda vacía. Añade tu primer paciente.');break;
+    case 'demo-yes':S=demoState();S.updated=Date.now();UI.opt=null;UI.view='week';closeSheet();commit();break;
+  }
+});
+document.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.dataset.off){const o=UI.offer;if(t.checked)o.sel.add(t.dataset.off);else o.sel.delete(t.dataset.off);t.closest('.orow').classList.toggle('on',t.checked);setOfferMsg();return;}
+  switch(t.id){
+    case 'w-max':S.settings.maxPerDay=+t.value||0;commit(true);break;
+    case 's-start':case 's-end':case 's-slot':regrid(+document.getElementById('s-start').value,+document.getElementById('s-end').value,+document.getElementById('s-slot').value);break;
+    case 'imp-file':{const f=t.files&&t.files[0];if(f)f.text().then(x=>{document.getElementById('imp').value=x;});break;}
+  }
+});
+document.addEventListener('input',e=>{
+  const t=e.target;
+  if(t.id==='off-msg')updWa();
+  if(t.id==='p-q'){UI.pSearch=t.value;document.getElementById('plist').innerHTML=patientRows();}
+  if(t.id==='cell-q'){const q=t.value.trim().toLowerCase();document.querySelectorAll('#cell-list [data-name]').forEach(b=>{b.hidden=!b.dataset.name.includes(q);});}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSheet();});
+
+boot();
+</script>
+</body>
+</html>
